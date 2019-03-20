@@ -15,8 +15,8 @@ use Illuminate\Http\Request;
 
 Route::group(['middleware' => ['auth:api']], function()
 {
-	Route::get('/user/info', function (Request $request) 
-	{
-	    return $request->user();
-	});
+	Route::get('/user/info', 'UserController@info');
 });
+
+
+Route::resource('/user','UserController');
